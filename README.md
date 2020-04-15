@@ -22,4 +22,4 @@ console.log(commentGenerator(name));
 
 ---
 
-*copyright* - Likedin BS Generator Team - 2020
+*copyright* - Likedin BS Generator Team - (Daniel, Fabrício, Pedro, Rafael, Ricky, Thiago) - 2020
