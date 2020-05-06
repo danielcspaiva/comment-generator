@@ -1,8 +1,10 @@
-const commentGenerator = (name, language) => {
+const prompt = require('prompt-sync')({sigint: true});
+
+const commentGenerator = (name, lang) => {
   const messages = {
     pt: {
-      beginning: ['Valeu', 'Parabéns', 'Boa', 'É isso aí', 'Ótimo trabalho', 'Muito bom', 'Excelente'],
-      middle: [
+      beg: ['Valeu', 'Parabéns', 'Boa', 'É isso aí', 'Ótimo trabalho', 'Muito bom', 'Excelente'],
+      mid: [
         'Incrível a sua dedicação',
         'Impressionante o seu comprometimento',
         'Isso nada mais é que um reflexo do seu empenho',
@@ -19,8 +21,8 @@ const commentGenerator = (name, language) => {
       ],
     },
     en: {
-      beginning: ['Thanks', 'Congrats', 'Great', 'There you go', 'Great work', 'Well done', 'Excellent'],
-      middle: [
+      beg: ['Thanks', 'Congrats', 'Great', 'There you go', 'Great work', 'Well done', 'Excellent'],
+      mid: [
         'Your dedication is amazing',
         'Your commitment is impressive',
         'This is nothing more than a consequence of your efforts',
@@ -38,24 +40,23 @@ const commentGenerator = (name, language) => {
     },
   };
 
-  const { beginning, middle, end } = messages[language];
+  const { beg, mid, end } = messages[lang];
 
-  let randBeginning = beginning[Math.floor(Math.random() * beginning.length)];
-  let randMiddle = middle[Math.floor(Math.random() * middle.length)];
+  let randBeg = beg[Math.floor(Math.random() * beg.length)];
+  let randMid = mid[Math.floor(Math.random() * mid.length)];
   let randEnd = end[Math.floor(Math.random() * end.length)];
 
-  return `${randBeginning}, ${name}! ${randMiddle}, ${randEnd}!`;
+  return `${randBeg}, ${name}! ${randMid}, ${randEnd}!`;
 };
 
-const body = document.getElementById('body');
-const name = document.getElementById('name');
-const language = document.getElementById('language');
-const btn = document.getElementById('get-message');
+console.log('Seja Bem-Vimdo ao Linkedin Bullshit Generator!\n')
+let name = prompt('Quem você quer elogiar hoje? ');
+let lang = prompt('Escolha a língua do elogio (Pt|en): ');
+if (lang === '') {
+  lang = 'pt';
+}
 
-btn.addEventListener('click', () => {
-  const div = document.createElement('div');
-  div.innerHTML = `
-    <p>${commentGenerator(name.value, language.value)}</p>
-    `;
-  body.appendChild(div);
-});
+console.log('\nAqui vão 3 opções:\n')
+console.log(commentGenerator(name, lang));
+console.log(commentGenerator(name, lang));
+console.log(commentGenerator(name, lang));

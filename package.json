@@ -1,0 +1,22 @@
+{
+  "name": "linkedingenerator",
+  "version": "1.0.0",
+  "description": "Simple script to generate LinkedIn comments.",
+  "main": "linkedinCommentGenerator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielcspaiva/comment-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielcspaiva/comment-generator/issues"
+  },
+  "homepage": "https://github.com/danielcspaiva/comment-generator#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
